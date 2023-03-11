@@ -1,0 +1,58 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Add post {% endblock %}
+{% block main %}
+{% if error %}
+    {% include 'main/notification.html' %}
+{% endif %}
+{% if post.type_file == 'video' %}
+<section class="section">
+    <h3 class="title">{{post.title}}</h3>
+    <video class="video" controls>
+        <source src="{{post.media_video.url}}" type="video/mp4">
+    </video>
+    <p class="post">{{post.post}}</p>
+    <p class="data">Was posted: {{post.data_time_update}}</p>
+</section>
+{% elif post.type_file == 'img' %}
+<section class="section">
+    <h3 class="title">{{post.title}}</h3>
+    <p style="margin:0;"><a href="#"><img class="img aligning" src="{{post.media_img.url}}"></a></p>
+    <p class="post">{{post.post}}</p>
+    <p class="data">Was posted: {{post.data_time_update}}</p>
+</section>
+{% else %}
+<section class="section">
+    <h3 class="title">{{post.title}}</h3>
+    <p class="post">{{post.post}}</p>
+    <p class="data">Was posted: {{post.data_time_update}}</p>
+</section>
+{% endif %}
+
+<form class="section" method="post">
+    {% csrf_token %}
+    <p>{{ form.name }}</p>
+    <p>{{ form.comment}}</p>
+    <p>
+        <button class="button" type="submit"> Add comment</button>
+    </p>
+</form>
+{% if comments %}
+{% for comment in comments %}
+<section class="section">
+    <p class="title">Post was left by: {{ comment.name }}</p>
+    <p class="post">{{ comment.comment}}</p>
+    <p class="data">Was posted: {{ comment.data_time}}</p>
+
+</section>
+{% endfor %}
+{% else %}
+<p class="p_no_content">There is no comments</p>
+{% endif %}
+
+
+{% endblock %}
+
+{% block description %} about {% endblock %}
+
+{% block main_description %} Post {% endblock %}

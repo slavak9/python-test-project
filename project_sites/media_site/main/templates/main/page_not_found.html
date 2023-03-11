@@ -1,0 +1,13 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Page not found {% endblock %}
+{% block main %}
+<p class="section" style="color:orange; font-size:250%;"> <b>ERROR 404</b><br>Page not found
+    <br><a href="{% url 'main' %}" style="margin-top:5%">
+    <button style="font-size:50%;" class="button">Return to Home page</button>
+    </a>
+</p>
+
+{% endblock %}
+
+

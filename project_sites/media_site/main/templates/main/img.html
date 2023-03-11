@@ -1,0 +1,9 @@
+{% if i.title %}
+    <h3 class="title">{{i.title}}</h3>
+    {% endif %}
+    <p style="margin:0;display: flex;justify-content: center;">
+        <a href="#"><img class="img aligning" src="{{i.media_img.url}}" target="_blank"></a></p>
+    <p class="post">
+        {{i.post}}
+    </p>
+    <p class="data">Was posted: {{i.data_time_update}}</p>

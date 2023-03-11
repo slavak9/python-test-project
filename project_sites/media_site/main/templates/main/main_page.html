@@ -1,0 +1,35 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} My Contents {% endblock %}
+
+{% block main %}
+{% if data %}
+{% for i in data %}
+{% if i.type_file == 'video' %}
+<section class="section">
+    {% include 'main/video.html' %}
+    {% include 'main/button.html' %}
+</section>
+{% elif i.type_file == 'img' %}
+<section class="section">
+    {% include 'main/img.html' %}
+    {% include 'main/button.html' %}
+</section>
+{% else %}
+<section class="section">
+    {% include 'main/text.html' %}
+    {% include 'main/button.html' %}
+</section>
+{% endif %}
+{% endfor %}
+{% else %}
+{% include 'main/no_contents.html' %}
+{% endif %}
+{% endblock %}
+
+{% block description %} about {% endblock %}
+
+{% block main_description %} My Contents {% endblock %}
+
+
+

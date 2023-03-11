@@ -1,0 +1,10 @@
+{% if i.title %}
+    <h3 class="title">{{i.title}}</h3>
+    {% endif %}
+    <video class="video" controls>
+        <source src="{{i.media_video.url}}" type="video/mp4">
+    </video>
+    <p class="post">
+        {{i.post}}
+    </p>
+    <p class="data">Was posted: {{i.data_time_update}}</p>

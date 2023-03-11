@@ -1,0 +1,19 @@
+
+{% extends 'main/layout.html' %}
+
+{% block title %} Edit content {% endblock %}
+
+{% block main %}
+{% include 'add_content/cont_part.html' %}
+{% if green %}
+<p class="section" style="color:green; font-size:140%;"><a href="{% url 'user_profile' %}">
+    <button class="button">{{green}}</button>
+</a></p>
+{% elif orange %}
+<p class="section" style="color:orange; font-size:140%;"> {{orange}}{% include 'main/close_button.html' %}</p>
+{% endif  %}
+{% endblock %}
+
+{% block description %} about {% endblock %}
+
+{% block main_description %} Edit content {% endblock %}

@@ -1,0 +1,10 @@
+<form class="form_button" method="post">
+    {% csrf_token %}
+    <p><input type="hidden" name="edit content" value="{{i.slug}}"></p>
+    <p><input type="submit" class="button" value="edit content"></p>
+</form>
+<form class="form_button" method="post">
+    {% csrf_token %}
+    <p><input type="hidden" name="delete_value" value="{{i.slug}}"></p>
+    <p><input type="submit" class="button" style="background-color:orange" value="delete"></p>
+</form>

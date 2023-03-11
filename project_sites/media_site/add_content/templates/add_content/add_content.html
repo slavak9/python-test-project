@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Add content {% endblock %}
+
+{% block main %}
+{% if restrictions %}
+<p class="section" style="color:orange; font-size:140%;"> {{restrictions}} </p>
+{% else %}
+    {% include 'add_content/cont_part.html' %}
+    {% if green %}
+    <p class="section" style="color:green; font-size:140%;"><a href="{% url 'main' %}">
+        <button class="button">{{green}}</button>
+    </a></p>
+    {% elif orange %}
+    <p class="section" style="color:orange; font-size:140%;"> {{orange}}
+        {% include 'main/close_button.html' %}
+    </p>
+    {% endif  %}
+{% endif %}
+{% endblock %}
+
+{% block description %} about {% endblock %}
+
+{% block main_description %} Add Content {% endblock %}

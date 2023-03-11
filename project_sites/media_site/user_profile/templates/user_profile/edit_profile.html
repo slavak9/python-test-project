@@ -1,0 +1,20 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Edit profile {% endblock %}
+
+{% block main %}
+<form class="section" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>{{user.name}}</p>
+    <p>{{user.last_name}}</p>
+    <p>{{user.city}}</p>
+    <p class="file" ><label style="color:gray" for="myfile">File should be img:</label>{{user.photo}}</p>
+    <p><button class="button" type="submit">Edit/save</button></p>
+
+</form>
+{% endblock %}
+
+{% block description %} about {% endblock %}
+
+{% block main_description %} Edit profile {% endblock %}
+

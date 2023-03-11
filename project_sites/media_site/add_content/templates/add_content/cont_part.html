@@ -1,0 +1,11 @@
+<form class="section" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>{{form.title}}</p>
+    <p class="file" ><label style="color:gray" for="myfile">File should be img or video:</label>{{form.media_file}}</p>
+    <p>{{form.post}}</p>
+    <p>
+        <button class="button" type="submit">save</button>
+    </p>
+</form>
+
+

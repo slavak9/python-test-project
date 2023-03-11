@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Registration {% endblock %}
+
+{% block main %}
+
+<form class="section" method="post">
+    {% csrf_token %}
+    <p>{{register.username}}</p>
+    <p>{{register.email}}</p>
+    <p>{{register.password1}}</p>
+    <p>{{register.password2}}</p>
+    <p><button class="button" type="submit">save</button></p>
+</form>
+{% if error %}
+<p class="section" style="color:orange; font-size:140%;"> {{error}}
+    <br><a href="{{ i.get_urls }}">
+    <button style="font-size: 71%" class="button">Close</button>
+    </a>
+</p>
+{% endif  %}
+{% endblock %}
+
+{% block description %} about {% endblock %}
+
+{% block main_description %} Registration {% endblock %}
+
+
